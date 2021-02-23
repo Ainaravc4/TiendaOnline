@@ -1,0 +1,40 @@
+.footer{
+    background-color: color(quaternary);
+    width: 100%;
+    padding: 30px 0;
+
+    //le indicamos que sea flex y se distribuya en forma de columna
+    @include flexposition;
+    @include flexFlow();
+
+    @media(min-width: 576px){
+        padding: 70px 0;
+    }
+
+    .social-icon{
+        width: 400px;
+        margin-bottom: 40px;
+        //le damos a la lista de iconos tamaño y una transicion
+        &-link{
+            text-decoration: none;
+            font-size: 5rem;
+            transition: color .7s;
+            @include tamanofuente(3rem,4rem,5rem,6rem);
+        }
+    }
+    &-copyrigh-paragraph{
+        font-size: size(sm);
+        color:color(primary);
+        margin: auto;
+        text-align: center;
+    }
+}
+// creamos un bucle para recorrer la lista y darle a los iconos un color diferente
+@each $item, $valor in $socialMediaColors1{
+    .social-icon-item:nth-child(#{$item}) .social-icon-link{
+        color: $valor;
+        &:hover{
+            color: lighten($valor, 30%) ;
+        }
+    }
+}

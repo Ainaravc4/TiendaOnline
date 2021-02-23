@@ -1,0 +1,57 @@
+//utilizamos el mixin tamanofuente para definir el tamaño de letra general
+@mixin tamañoLetra {
+   @include tamanofuente(1rem,1.5rem,1.8rem,2rem);
+}
+
+//hacemos flex con parametros por defecto cetrados
+@mixin flexposition($justifycontent:center, $alignitem:center) {
+    display: flex;
+    justify-content:$justifycontent ;
+    align-items: $alignitem ;
+}
+
+//hacemos el flow por defecto column
+@mixin flexFlow($flow:column) {
+    display: flex;
+    flex-flow:$flow ;
+}
+
+//estructuramos las media query
+@mixin response($breakpoint) {
+    @if($breakpoint==xl){
+        @media(max-width:1200px){
+            @content;
+        }
+    }
+    @if($breakpoint==lg){
+        @media(max-width:992px){
+            @content;
+        }
+    }
+    @if($breakpoint==md){
+        @media(max-width:768px){
+            @content;
+        }
+    }
+    @if($breakpoint==sm){
+        @media(max-width:576px){
+            @content;
+        }
+    }
+}
+
+
+@mixin tamanofuente($xs,$sm,$md,$lg){
+    @media(min-width: 300px){
+        font-size: $xs;
+    }
+    @media(min-width: 576px){
+        font-size: $sm;
+    }
+    @media(min-width: 768px){
+        font-size: $md;
+    }
+    @media(min-width: 992px){
+        font-size: $lg;
+    }
+}

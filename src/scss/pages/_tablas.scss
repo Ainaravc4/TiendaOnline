@@ -1,0 +1,130 @@
+.tabla{
+    //estructuramos la seccion de carrito y panel en filas y columnas con grid
+    display: grid;
+    grid-template-columns: minmax(6rem, 1fr) repeat(8, minmax(min-content, 16rem)) minmax(6rem, 1fr);
+    grid-template-rows: repeat(6, min-content);
+    grid-row-gap: 1.6rem;
+    
+    //situamos el titulo en el centro
+    &-titulo{
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+        font-family: $font-dancing;
+        font-size: size(xl);
+        text-align: center;
+        font-weight: bold;
+        color: darken(color(quaternary), 50%) ;
+    }
+    //las filas ocuparan de la columna de la 2 a la 10 excepto en pantallas pequeñas
+    &-productos{
+        grid-column: 2 / 10;
+        grid-row: 4 / 5;
+        @include response(sm){
+            grid-column: 1 / -1;
+        }
+        th,td {
+            //damos tamaño de letra segun la pantalla
+            @include tamanofuente(1.5rem,1.6rem,1.7rem,2rem);
+            padding: 1rem;
+        }
+        td{
+            img{
+                width: 9rem;
+                @include response(lg){
+                    width: 8rem;
+                }
+                @include response(md){
+                    width: 6rem;
+                }
+                @include response(sm){
+                    width: 4rem;
+                }
+                
+                
+            }
+            input:not(input[type=number]){
+                display: flex;
+                @include flexFlow;
+                font-size: 1rem;
+                margin-right: 1rem;
+                
+            }
+            input[type=file]{
+                color:transparent;
+                
+                
+            }
+        }
+        //damos estilo a la tabla para que el color de las filas se vayan alterenando
+        tr:nth-child(even){
+            background-color: color(quaternary);
+        }
+        img{
+            width: 15%;
+        }
+    }
+    &-btn{
+        width: 15rem;
+        height: 5rem;
+        margin: auto;
+        margin-bottom: 1rem;
+        grid-column: 1 / -1;
+        grid-row: 6 / 7;
+        @include tamanofuente(1.3rem,1.5rem,1.8rem,1.9rem);
+        background-color: color(btnCreate);
+            color: white;
+            &:hover{
+                background-color: lighten(color(btnCreate), 20%);
+            }
+    }
+    &-create{
+        //situamos el boton que hay en la vista panel en el centro y debajo de la tabla
+        margin: auto;
+        grid-column: 1 / -1;
+        grid-row: 5 / 6;
+        
+        i{
+            color: color(btnCreate);
+            @include tamanofuente(4rem,5rem,6rem,7rem);
+            &:hover{
+                color: lighten(color(btnCreate), 20%);
+            }
+        }
+    }
+    &-form{
+        //volvemos a situar el formulario de creacion en el centro debajo del boton
+        grid-column: 2 / 10;
+        grid-row: 6 / 7;
+        @include flexposition();
+        @include flexFlow();
+        
+        div{
+            width: 50%;
+            //indicamos que es flex y que se distribuya en space-between
+            @include flexposition(space-between, none);
+            @include flexFlow(row);
+            @include tamanofuente(1.5rem,1.6rem,1.7rem,2rem);
+
+            input{
+                margin-top:1rem;
+            }
+            .img{
+                img{
+                    width: 25rem;
+                    height: 25rem;
+                    
+                }
+            }
+            
+            button{
+                background-color: color(btnCreate);
+                color: white;
+                &:hover{
+                    background-color: lighten(color(btnCreate), 20%);
+                }
+            }
+        }
+
+        
+    }
+}

@@ -1,0 +1,11 @@
+.logo{
+    /*posicionamos logo dentro del header. */ 
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    margin: auto;
+    &-img {
+      
+        width:10rem;
+        height: 100%;
+    }
+}

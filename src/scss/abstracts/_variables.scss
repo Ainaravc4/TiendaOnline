@@ -1,0 +1,42 @@
+/*paleta de colores*/
+$colors: (
+    primary: #333,
+    quaternary: #f3d3a990,
+    btnBuy:#fb2929ce,
+    btnCreate:#21ca18ce
+);
+
+/*función que devuelve el color arriba definido*/
+@function color ($color-name){
+    @return map-get($colors, $color-name);
+}
+
+
+/*array de colores para los iconos*/
+$socialMediaColors1:(
+    1: blue,
+    2: red,
+    3: black,
+    4: purple
+);
+
+
+
+/*tamaños fuente*/
+$font-sizes:(
+    xl:4rem,
+    lg:2.8rem,
+    md:2.5rem,
+    sm:2rem,
+    xs:1.8rem
+);
+
+/*función que devuelve el tamaño arriba definido*/ 
+@function size($size){
+    @return map-get($font-sizes, $size);
+}
+
+//estilos de letras
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+$font-josefin:'Josefin Sans',Sans-serif;
+$font-dancing:'Pacifico', cursive;

@@ -1,0 +1,19 @@
+.products{
+    //indicamos el estilo que tiene los subtitulos de novedades y productos 
+   
+    &-heading{
+        margin: 5rem 0;
+        &-text{
+            font-family: $font-dancing;
+            font-size: size(xl);
+            text-align: center;
+            font-weight: bold;
+            color: darken(color(quaternary), 50%) ;
+        }
+    }
+    &-wrapper{
+        // el contenedor será flex centrado
+        @include flexposition();
+    }
+    
+}

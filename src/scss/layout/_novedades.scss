@@ -1,0 +1,89 @@
+
+.product{
+    //lo ponemos relativa para posteriormente poder situar el div con la informacion
+    position: relative;
+    &:hover .product-description{
+        opacity: 1;
+        visibility: visible;
+    }
+    &-img{
+        width: 100%;
+    }
+    &-description{
+        text-align: center;
+        //ahora indicamos el absolute paraa poder situarlo encima de la imagen
+        position: absolute;
+
+        //situamos la  informacion encima de forma centrada
+        top: 50%;
+        left: 45%;
+        transform: translate(-50%,-50%);
+        background-color: color(quaternary);
+        padding: 2rem;
+        color: color(primary);
+        visibility: hidden;
+        opacity: 0;
+        transition: all 1s .1s;
+        
+
+        @include response(lg){
+            padding: 1rem;
+        }
+        //cuando el tamaño de pantalla sea pequeña el div desaparecera quedando solo el boton de compra
+        @include response(sm){
+            background-color: transparent;
+            border: none;
+        }
+        &-heading{
+            font-size: size(md);
+            @include response(md){
+                font-size: size(sm);
+             }
+            @include response(sm){
+               display: none;
+            }
+        }
+        &-price{
+            font-size: size(lg);
+            font-weight: 500;
+            margin: 1rem 0;
+            @include response(lg){
+                font-size: size(sm);
+            }
+            @include response(sm){
+               display: none;
+            }
+        }
+        &-des{
+            font-size: size(sm);
+            @include response(md){
+                font-size: size(xs);
+             }
+            @include response(sm){
+               display: none;
+            }
+        }
+        &-btn{
+            width: 100%;
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: .5rem;
+            background-color: color(btnBuy);
+        /*si el boton esta desabilitado porque no hay stock, su color 
+        de fondo sera uno ya predefinido en nuestra paleta de colores*/
+            &:disabled{
+                background-color: lighten(color(primary), 50%);
+
+            }
+            i{
+                color: white;
+                @include tamañoLetra;
+            }
+            &:hover:not(&:disabled){
+                opacity: 0.7;
+            }
+        }
+        
+    }
+}

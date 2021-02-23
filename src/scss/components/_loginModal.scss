@@ -1,0 +1,62 @@
+
+/*Editamos la ventana modal dandole un ancho*/
+.modal-content{
+    width: 100% !important;
+}
+
+/*Distrubuir el contenido del modal en dos columnas uno con un formulario y otro con una lista*/
+.modal-body{
+   //lo hacemos flex para centrarlo
+    @include flexposition(space-around, center);
+    @include flexFlow(row);
+
+    //Le damos tamaño a la fuente dependiendo del tamaño de pantalla
+    @include tamanofuente(12px,14px,16px,18px);
+
+    &-form{
+        //lo hacemos flex para centrarlo
+        @include flexposition();
+        @include flexFlow();
+
+        p{
+            margin-top: 2rem !important;
+            &:hover{
+                color: color(quaternary);
+            }
+        }
+        &-button{
+            margin-top: 2rem !important;
+            border: none;
+            width: 15rem;
+            border-radius: 5rem;
+            //escogemos un color ya predefinido
+            background-color: color(btnCreate);
+            color: white;
+            &:hover{
+                background-color: lighten(color(btnCreate), 20%);
+            }
+        }
+    }
+    &-redes li{
+        list-style: none;
+        //utilizamos el mixin que tiene los tamaños de letras segun la patalla
+        @include tamañoLetra;
+       
+        .social-media-link{
+            text-decoration: none;  
+        }
+        .social-media-link{
+            list-style: none;
+            margin-right: 1rem;
+            
+        }
+    }
+
+}
+
+// creamos un bucle para recorrer la lista y darle a los iconos un color diferente
+@each $item, $valor in $socialMediaColors1{
+    .social-media-item:nth-child(#{$item}) .social-media-link{
+        color: $valor;
+    }
+}

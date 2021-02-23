@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $font-josefin;
+}
+
+html {
+    //damos un tamaño de letra dependiendo de la pantalla
+    font-size: 62%;
+    @include response(md){
+        font-size: 55%;
+    }
+    @include response(sm){
+        font-size: 50%;
+    }
+}
+

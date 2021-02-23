@@ -1,0 +1,13 @@
+.heading{
+    //posicionar el titulo en grid cabecera centrado, debajo del logo 
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    text-align: center;
+    &-text{
+        font-size:size(xl) * 2; 
+        font-weight: lighter;
+        letter-spacing: 0.3rem;
+        color: darken(color(quaternary), 50%) ;
+    }
+
+}
